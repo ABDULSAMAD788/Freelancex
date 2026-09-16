@@ -2,9 +2,9 @@
 
 ## 1. Current Phase
 
-**Phase:** Planning and architecture
+**Phase:** Design system foundation
 
-**Status:** Not started
+**Status:** In progress
 
 ## 2. Current Goal
 
@@ -34,13 +34,31 @@ No application code has been marked as implemented by this tracker.
 
 ## 4. In Progress
 
-- [ ] Confirm local development environment.
-- [ ] Confirm Node.js and npm versions.
-- [ ] Create or verify the Next.js application.
+- [x] Confirm local development environment.
+- [x] Confirm Node.js and npm versions.
+- [x] Create or verify the Next.js application.
 - [ ] Configure environment variables.
 - [ ] Configure Clerk.
 - [ ] Configure Prisma and PostgreSQL.
-- [ ] Establish initial shared UI tokens.
+- [x] Establish initial shared UI tokens and shadcn/ui foundation.
+
+### Design System Unit — Completed
+
+- [x] Configure shadcn/ui for the existing Next.js App Router and Tailwind CSS v4 setup.
+- [x] Install Button, Card, Dialog, Input, Tabs, Textarea, and ScrollArea.
+- [x] Install `lucide-react`.
+- [x] Create the shared `cn()` utility in `lib/utils.ts`.
+- [x] Integrate the existing FreelanceX dark theme tokens.
+- [x] Run lint, type-check, and build verification.
+
+Implementation record:
+- Added `components.json` for the shadcn/ui `base-nova` configuration.
+- Added the seven requested components under `components/ui/`.
+- Added `lucide-react`, `class-variance-authority`, `@base-ui/react`, `cn`, `clsx`, `tailwind-merge`, and `tw-animate-css` dependencies required by the generated components and utility.
+- Updated `app/globals.css` with the FreelanceX dark design tokens and shadcn semantic variables.
+- Added the root `dark` class and changed the home page to use semantic background and foreground utilities.
+- Verification passed: `npm run build`, `npx tsc --noEmit`, and `npm run lint`.
+- No unresolved issues for this unit.
 
 ## 5. Next Up
 

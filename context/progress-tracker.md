@@ -2,7 +2,7 @@
 
 ## 1. Current Phase
 
-**Phase:** Design system foundation
+**Phase:** Shared dashboard foundation
 
 **Status:** In progress
 
@@ -41,6 +41,7 @@ No application code has been marked as implemented by this tracker.
 - [ ] Configure Clerk.
 - [ ] Configure Prisma and PostgreSQL.
 - [x] Establish initial shared UI tokens and shadcn/ui foundation.
+- [x] Establish the shared dashboard shell and reusable dialog pattern.
 
 ### Design System Unit — Completed
 
@@ -59,6 +60,23 @@ Implementation record:
 - Added the root `dark` class and changed the home page to use semantic background and foreground utilities.
 - Verification passed: `npm run build`, `npx tsc --noEmit`, and `npm run lint`.
 - No unresolved issues for this unit.
+
+### Dashboard Foundation Unit — Completed
+
+- [x] Add the fixed dashboard navbar with responsive sidebar toggle.
+- [x] Add the overlay dashboard sidebar with role-aware navigation extension points.
+- [x] Add the shared `/dashboard` layout and initial empty workspace state.
+- [x] Confirm the dialog primitive supports title, description, content, footer, and responsive sizing.
+- [x] Run development-server and responsive interaction verification.
+
+Implementation record:
+- Added `components/dashboard/dashboard-navbar.tsx`, `dashboard-sidebar.tsx`, and `dashboard-shell.tsx`.
+- Added `app/dashboard/layout.tsx` and `app/dashboard/page.tsx`.
+- Updated `components/ui/dialog.tsx` with constrained responsive sizing and scroll behavior.
+- No database, authentication, authorization, or business-logic changes are required for this foundation unit.
+- Verification passed: `npm.cmd exec -- tsc --noEmit`, `npm.cmd run lint`, and `npm.cmd run build`.
+- Browser verification passed at `http://localhost:3000/dashboard`: the shell rendered, the sidebar opened and closed, Escape/backdrop behavior was available, and the mobile sidebar transitioned between hidden and visible positions at 390px width.
+- No document/editor-specific UI was added.
 
 ## 5. Next Up
 

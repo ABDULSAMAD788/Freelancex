@@ -1,0 +1,4 @@
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+export default function SignInPage() { return <main className="flex min-h-screen items-center justify-center px-5"><Card className="w-full max-w-md"><CardContent className="p-8 text-center"><h1 className="text-2xl font-semibold">Sign in to FreelanceX</h1><p className="mt-3 text-sm leading-6 text-muted-foreground">Authentication will be connected in the next product phase.</p><Button className="mt-6 w-full" disabled>Continue with Clerk (coming soon)</Button><Link className="mt-5 inline-block text-sm text-primary hover:underline" href="/">Back to FreelanceX</Link></CardContent></Card></main> }

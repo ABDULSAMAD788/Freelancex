@@ -2,23 +2,13 @@
 
 ## 1. Current Phase
 
-**Phase:** Shared dashboard foundation
+**Phase:** Complete marketplace UI
 
-**Status:** In progress
+**Status:** UI implementation complete; final audit checklist open
 
 ## 2. Current Goal
 
-Establish the Next.js application foundation and verify:
-- Next.js App Router setup.
-- TypeScript strict mode.
-- Tailwind CSS.
-- shadcn/ui foundation.
-- Clerk configuration.
-- Prisma configuration.
-- PostgreSQL connection.
-- Environment variable validation.
-- Basic project folder structure.
-- Initial build and lint checks.
+Complete the FreelanceX frontend with reusable UI, typed mock data, public marketplace routes, dashboard workflows, responsive states, and navigation before beginning authentication and persistence.
 
 ## 3. Completed
 
@@ -30,7 +20,42 @@ Establish the Next.js application foundation and verify:
 - [x] Tailwind CSS and shadcn/ui selected for UI.
 - [x] Six context files created for AI-assisted development.
 
-No application code has been marked as implemented by this tracker.
+The initial foundation tracker has been superseded by the completed frontend unit below; backend functionality remains intentionally unimplemented.
+
+### Complete UI Design Unit — Completed
+
+- [x] Global public shell, dashboard content primitives, empty/loading/error states, and status badges.
+- [x] Public landing page with responsive navigation, marketplace search preview, category discovery, trust section, and footer.
+- [x] Job browsing with search, category, budget, experience, project type, and sort filters.
+- [x] Job details, proposal preview form, related jobs, client summary, and invalid route handling.
+- [x] Categories page and reusable category presentation using Lucide icons.
+- [x] Freelancer and client public profile pages with portfolio, skills, reviews, history, job statistics, and empty states.
+- [x] Client and freelancer dashboard overview routes with mock role-specific content.
+- [x] Client job posting and job management UI, received proposals, and local feedback states.
+- [x] Freelancer saved jobs, proposal filtering, local removal, and empty states.
+- [x] Shared active/completed contract lists and contract detail route.
+- [x] Messaging interface with local message sending plus reusable conversation, chat, bubble, and input primitives.
+- [x] Notifications read/unread states, activity timeline, profile management, settings, and supporting public pages.
+- [x] Responsive mobile behavior, route loading/error states, and consistent navigation destinations.
+- [x] React Hook Form and Zod validation for job posting, proposal submission, and profile management forms.
+- [x] Category search, active/completed contract grouping, and client job-close confirmation UI.
+- [x] Explicit freelancer dashboard panels for proposals, contracts, saved jobs, earnings placeholder, recommended jobs, and profile completion.
+- [x] Explicit client dashboard panels for posted jobs, contracts, proposals, recommended freelancers, hiring activity, and post-job action.
+
+Implementation record:
+- Added typed temporary records in `lib/mock-data.ts`; no API, database, Clerk, Prisma, payment, or real-time messaging code was added.
+- Added shared public layout, page primitives, job components, profile components, dashboard workflow components, and messaging primitives.
+- Added all planned public and dashboard UI routes, including auth placeholders that clearly defer Clerk integration.
+- Browser smoke checks passed for `/`, `/jobs`, `/jobs/brand-system`, and `/dashboard`; mobile `/jobs` at 390px had no horizontal overflow.
+- Verification passed after final edits: direct TypeScript compiler, local ESLint, and `next build`.
+- Final build generated and checked all 30 planned application routes, including dynamic job, profile, proposal, and contract routes.
+- No commit or push was performed; all work remains in the working tree for final review.
+- The original `npm` scripts could not be invoked in this PowerShell session because `npm.ps1` execution was blocked; equivalent local executables were used.
+- No document editor or workspace-style project creation UI was added.
+
+### Remaining Work
+
+The actionable follow-up checklist is maintained in [context/remaining-work-checklist.md](remaining-work-checklist.md). Complete sections 1 through 7 before beginning backend implementation. The checklist covers the remaining UI fidelity and accessibility gaps, then the ordered Clerk, Prisma, authorization, marketplace, messaging, review, notification, and administration units.
 
 ## 4. In Progress
 
@@ -79,6 +104,10 @@ Implementation record:
 - No document/editor-specific UI was added.
 
 ## 5. Next Up
+
+### Backend Foundation — Next
+
+The complete mock frontend is ready. The next work should begin with environment validation and Clerk integration, followed by application-user synchronization, Prisma/PostgreSQL schema design, server-side authorization, and persistent marketplace workflows. Resolve the listed product open questions before implementing the affected backend lifecycle rules.
 
 ### Unit 1 — Environment and Application Foundation
 

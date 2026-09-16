@@ -1,0 +1,9 @@
+"use client"
+import { Search } from "lucide-react"
+import { Input } from "@/components/ui/input"
+
+export type JobFilterState = { search: string; category: string; budget: string; experience: string; projectType: string; sort: string }
+export function JobFilters({ filters, onChange }: { filters: JobFilterState; onChange: (filters: JobFilterState) => void }) {
+  const update = (key: keyof JobFilterState, value: string) => onChange({ ...filters, [key]: value })
+  return <div className="grid gap-3 rounded-xl border border-border bg-card p-4 md:grid-cols-6"><div className="relative md:col-span-2"><Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" /><Input aria-label="Search jobs" className="pl-9" onChange={(event) => update("search", event.target.value)} placeholder="Search jobs" value={filters.search} /></div>{(["category", "budget", "experience", "projectType", "sort"] as const).map((key) => <select aria-label={key} className="h-8 rounded-lg border border-input bg-background px-2 text-sm text-foreground" key={key} onChange={(event) => update(key, event.target.value)} value={filters[key]}><option value="">{key === "projectType" ? "Project type" : key[0].toUpperCase() + key.slice(1)}</option>{(key === "category" ? ["Programming & Tech", "Design & Creative", "Writing & Content", "Marketing", "Data & Analytics"] : key === "budget" ? ["Under $1,000", "$1,000 - $2,500", "Over $2,500"] : key === "experience" ? ["Entry", "Intermediate", "Expert"] : key === "projectType" ? ["Fixed price", "Hourly"] : ["Newest", "Highest budget"]).map((option) => <option key={option} value={option}>{option}</option>)}</select>)}</div>
+}

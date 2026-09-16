@@ -34,11 +34,11 @@ const sharedNavigation = [
 const roleNavigation: Record<DashboardRole, typeof sharedNavigation> = {
   client: [
     { label: "Discover freelancers", href: "/freelancers", icon: Compass },
-    { label: "My projects", href: "/dashboard/projects", icon: FolderKanban },
+    { label: "My jobs", href: "/dashboard/client/jobs", icon: FolderKanban },
   ],
   freelancer: [
-    { label: "Find projects", href: "/projects", icon: Compass },
-    { label: "My services", href: "/dashboard/services", icon: BriefcaseBusiness },
+    { label: "Find jobs", href: "/jobs", icon: Compass },
+    { label: "Saved jobs", href: "/dashboard/freelancer/saved-jobs", icon: BriefcaseBusiness },
   ],
 }
 

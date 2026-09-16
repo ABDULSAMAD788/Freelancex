@@ -1,0 +1,1 @@
+export function SkillsList({ skills }: { skills: string[] }) { return <div className="flex flex-wrap gap-2">{skills.map((skill) => <span className="rounded-full border border-border bg-card px-3 py-1.5 text-sm text-muted-foreground" key={skill}>{skill}</span>)}</div> }

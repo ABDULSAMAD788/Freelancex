@@ -1,5 +1,6 @@
 "use client"
 
+import { UserButton } from "@clerk/nextjs"
 import { PanelLeftClose, PanelLeftOpen } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -31,7 +32,9 @@ export function DashboardNavbar({
           freelancex
         </div>
 
-        <div aria-hidden="true" className="size-8" />
+        <div className="flex items-center justify-end gap-3">
+          <UserButton afterSignOutUrl="/sign-in" />
+        </div>
       </div>
     </header>
   )

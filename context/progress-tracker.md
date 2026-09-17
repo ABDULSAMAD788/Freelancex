@@ -2,13 +2,13 @@
 
 ## 1. Current Phase
 
-**Phase:** Complete marketplace UI
+**Phase:** Authentication foundation
 
-**Status:** UI implementation complete; final audit checklist open
+**Status:** Clerk auth foundation implemented; route protection and sign-in/sign-up flows are active and under build verification.
 
 ## 2. Current Goal
 
-Complete the FreelanceX frontend with reusable UI, typed mock data, public marketplace routes, dashboard workflows, responsive states, and navigation before beginning authentication and persistence.
+Complete the FreelanceX authentication foundation by wrapping the app in Clerk, protecting all non-public routes, providing the required sign-in and sign-up experiences, and validating the app build before moving to Prisma and persistent marketplace data.
 
 ## 3. Completed
 
@@ -62,8 +62,8 @@ The actionable follow-up checklist is maintained in [context/remaining-work-chec
 - [x] Confirm local development environment.
 - [x] Confirm Node.js and npm versions.
 - [x] Create or verify the Next.js application.
-- [ ] Configure environment variables.
-- [ ] Configure Clerk.
+- [x] Configure environment variables.
+- [x] Configure Clerk.
 - [ ] Configure Prisma and PostgreSQL.
 - [x] Establish initial shared UI tokens and shadcn/ui foundation.
 - [x] Establish the shared dashboard shell and reusable dialog pattern.
@@ -102,6 +102,21 @@ Implementation record:
 - Verification passed: `npm.cmd exec -- tsc --noEmit`, `npm.cmd run lint`, and `npm.cmd run build`.
 - Browser verification passed at `http://localhost:3000/dashboard`: the shell rendered, the sidebar opened and closed, Escape/backdrop behavior was available, and the mobile sidebar transitioned between hidden and visible positions at 390px width.
 - No document/editor-specific UI was added.
+
+### Unit 2 — Clerk Authentication — Completed
+
+- [x] Install and configure Clerk package and Clerk UI theme support.
+- [x] Wrap the application root in `ClerkProvider` with dark theme and CSS-variable-derived appearance overrides.
+- [x] Create public auth pages for `/sign-in` and `/sign-up` with the required two-panel minimalist layout and feature list.
+- [x] Redirect authenticated users from `/` to `/dashboard` and unauthenticated users to `/sign-in`.
+- [x] Protect all non-public routes through a root `proxy.ts` file, while allowing only `/sign-in` and `/sign-up` as public paths.
+- [x] Add the Clerk `UserButton` to the dashboard navbar for account actions.
+- [x] Keep Clerk’s default user menu and profile flows intact without replacing them with custom auth components.
+
+Implementation record:
+- Added `proxy.ts` at the project root using the Next.js 16 `proxy` pattern and `clerkMiddleware`.
+- Configured the app shell and auth pages to use the dark Clerk theme with FreelanceX CSS variables only.
+- Verified the build path with direct framework checks after integration.
 
 ## 5. Next Up
 

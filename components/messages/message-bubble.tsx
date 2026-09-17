@@ -1,0 +1,1 @@
+export function MessageBubble({ children, mine = false }: { children: React.ReactNode; mine?: boolean }) { return <div className={`max-w-md rounded-2xl p-4 text-sm leading-6 ${mine ? "ml-auto rounded-tr-sm bg-primary text-primary-foreground" : "rounded-tl-sm bg-muted"}`}>{children}</div> }

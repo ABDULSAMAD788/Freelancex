@@ -1,0 +1,4 @@
+import { EmptyState } from "@/components/shared/page-primitives"
+import { Card, CardContent } from "@/components/ui/card"
+import type { Freelancer } from "@/lib/mock-data"
+export function PortfolioGrid({ items }: { items: Freelancer["portfolio"] }) { if (!items.length) return <EmptyState title="No portfolio projects yet" description="This freelancer has not added portfolio work yet." />; return <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{items.map((item) => <Card key={item.title}><div className={`aspect-[4/3] ${item.color}`} /><CardContent className="p-4"><p className="font-medium">{item.title}</p><p className="mt-1 text-sm text-muted-foreground">{item.category}</p></CardContent></Card>)}</div> }

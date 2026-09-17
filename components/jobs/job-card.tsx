@@ -1,0 +1,9 @@
+import Link from "next/link"
+import { ArrowUpRight, Clock3, MessageSquare, WalletCards } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { StatusBadge } from "@/components/shared/page-primitives"
+import type { Job } from "@/lib/mock-data"
+
+export function JobCard({ job }: { job: Job }) {
+  return <Card className="transition-colors hover:border-primary/50"><CardHeader><div className="flex items-start justify-between gap-4"><div><p className="mb-2 text-xs text-primary">{job.category}</p><CardTitle className="text-base leading-6"><Link className="hover:text-primary" href={`/jobs/${job.id}`}>{job.title}</Link></CardTitle></div><StatusBadge status={job.status} /></div></CardHeader><CardContent><p className="line-clamp-2 text-sm leading-6 text-muted-foreground">{job.description}</p><div className="mt-5 flex flex-wrap gap-2">{job.skills.map((skill) => <span className="rounded-md bg-muted px-2 py-1 text-xs text-muted-foreground" key={skill}>{skill}</span>)}</div><div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-border/70 pt-4 text-xs text-muted-foreground"><span className="inline-flex items-center gap-1.5"><WalletCards className="size-3.5" />{job.budget}</span><span className="inline-flex items-center gap-1.5"><Clock3 className="size-3.5" />{job.duration}</span><span className="inline-flex items-center gap-1.5"><MessageSquare className="size-3.5" />{job.proposals} proposals</span><Link className="ml-auto inline-flex items-center gap-1 font-medium text-foreground hover:text-primary" href={`/jobs/${job.id}`}>View <ArrowUpRight className="size-3.5" /></Link></div></CardContent></Card>
+}

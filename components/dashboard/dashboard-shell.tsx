@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 
 import { DashboardNavbar } from "@/components/dashboard/dashboard-navbar"
 import { DashboardSidebar } from "@/components/dashboard/dashboard-sidebar"
+import { getStoredDashboardRole, type DashboardRole } from "@/lib/dashboard-role"
 
 type DashboardShellProps = {
   children: React.ReactNode
@@ -11,8 +12,14 @@ type DashboardShellProps = {
 
 export function DashboardShell({ children }: DashboardShellProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [role, setRole] = useState<DashboardRole>("client")
 
   useEffect(() => {
+    const savedRole = getStoredDashboardRole()
+    if (savedRole) {
+      setRole(savedRole)
+    }
+
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setIsSidebarOpen(false)
@@ -32,6 +39,7 @@ export function DashboardShell({ children }: DashboardShellProps) {
       <DashboardSidebar
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
+        role={role}
       />
       <main className="min-h-screen pt-16">{children}</main>
     </div>

@@ -57,6 +57,27 @@ Implementation record:
 
 The actionable follow-up checklist is maintained in [context/remaining-work-checklist.md](remaining-work-checklist.md). Complete sections 1 through 7 before beginning backend implementation. The checklist covers the remaining UI fidelity and accessibility gaps, then the ordered Clerk, Prisma, authorization, marketplace, messaging, review, notification, and administration units.
 
+### Dashboard and Onboarding Refinement — Completed
+
+- [x] Require a first-time role selection after sign-up.
+- [x] Keep the selected role in temporary frontend state until database integration is added.
+- [x] Route clients to the client dashboard and freelancers to the freelancer dashboard.
+- [x] Ensure both dashboards expose the correct role-specific workspace navigation.
+- [x] Allow clients to access Discover Freelancers without role restrictions.
+- [x] Allow freelancers to use job discovery and proposal-related pages.
+- [x] Remove fabricated mock dashboard/profile values from the first-time onboarding experience.
+- [x] Keep onboarding from repeating during the same session unless the user resets state.
+- [x] Offer a clean empty-state experience when real marketplace data is unavailable.
+- [x] Keep existing Clerk auth and public routes functional while adding the role flow.
+
+Implementation record:
+- Added temporary localStorage-backed role and onboarding helpers in `lib/dashboard-role.ts`.
+- Added `/dashboard/role-selection` and `/dashboard/onboarding` flows with role-based redirect logic.
+- Updated `/dashboard` to redirect first-time users into role selection before sending them to their dashboard.
+- Added a public `/freelancers` listing so clients can browse profiles without incorrect role gating.
+- Simplified dashboard shells and profile forms to avoid default mock data and empty-state placeholders.
+- Verified the app still starts with `npm run dev` and the build passes with the expected role-aware routing behavior.
+
 ## 4. In Progress
 
 - [x] Confirm local development environment.

@@ -48,8 +48,6 @@ export default function SignInPage() {
                   card: "shadow-none border-0 bg-transparent",
                 },
               }}
-              afterSignInUrl="/dashboard"
-              afterSignUpUrl="/dashboard"
               path="/sign-in"
               routing="path"
               signUpUrl="/sign-up"

@@ -1,0 +1,3 @@
+import { PublicShell } from "@/components/layout/public-shell"
+import { PageContainer, PageHeader } from "@/components/shared/page-primitives"
+export default function PrivacyPage() { return <PublicShell><PageContainer><PageHeader eyebrow="Legal" title="Privacy" description="We will explain what information FreelanceX collects, why it is needed, and how it is protected." /><div className="max-w-2xl space-y-5 text-sm leading-7 text-muted-foreground"><p>This preview does not connect to authentication, analytics, or persistent data storage.</p><p>The final policy will be published before accounts and marketplace transactions are enabled.</p></div></PageContainer></PublicShell> }

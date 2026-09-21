@@ -1,0 +1,2 @@
+import { MessageBubble } from "@/components/messages/message-bubble"
+export function ChatWindow() { return <section className="flex min-h-[500px] flex-1 flex-col"><div className="border-b border-border p-5"><p className="font-medium">Maya Chen</p><p className="mt-1 text-xs text-muted-foreground">Atlas product redesign</p></div><div className="flex-1 space-y-4 p-5"><MessageBubble>The latest concept is ready for review.</MessageBubble></div></section> }

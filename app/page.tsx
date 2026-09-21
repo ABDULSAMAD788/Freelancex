@@ -1,12 +1,12 @@
-import { Button } from "@/components/ui/button";
-export default function Home() {
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
-  return (
-    <main className="flex min-h-screen items-center justify-center bg-background text-foreground">
-      <div className="text-4xl font-semibold tracking-tight sm:text-6xl">
-        freelancex
-        <Button>Click me</Button>
-      </div>
-    </main>
-  );
+export default async function HomePage() {
+  const { userId } = await auth();
+
+  if (userId) {
+    redirect("/dashboard");
+  }
+
+  redirect("/sign-in");
 }

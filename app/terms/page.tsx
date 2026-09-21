@@ -1,0 +1,3 @@
+import { PublicShell } from "@/components/layout/public-shell"
+import { PageContainer, PageHeader } from "@/components/shared/page-primitives"
+export default function TermsPage() { return <PublicShell><PageContainer><PageHeader eyebrow="Legal" title="Terms of service" description="A plain-language placeholder for the terms that will govern the marketplace." /><div className="max-w-2xl space-y-5 text-sm leading-7 text-muted-foreground"><p>FreelanceX is a place for clients and independent professionals to discover one another and agree on work.</p><p>Before launch, these terms will describe accounts, marketplace conduct, project agreements, privacy, and dispute handling in full.</p></div></PageContainer></PublicShell> }

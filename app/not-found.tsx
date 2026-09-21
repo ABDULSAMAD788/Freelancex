@@ -1,0 +1,4 @@
+import Link from "next/link"
+import { ArrowLeft } from "lucide-react"
+import { Button } from "@/components/ui/button"
+export default function NotFound() { return <main className="flex min-h-screen items-center justify-center px-5"><div className="max-w-md text-center"><p className="text-sm font-semibold text-primary">404</p><h1 className="mt-3 text-4xl font-semibold tracking-tight">That page moved on.</h1><p className="mt-4 text-sm leading-6 text-muted-foreground">The page you are looking for does not exist or is no longer available.</p><Button asChild className="mt-7"><Link href="/"><ArrowLeft />Back home</Link></Button></div></main> }
